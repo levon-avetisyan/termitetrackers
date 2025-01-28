@@ -1,0 +1,111 @@
+@use './variables.scss' as vars;
+
+.form-header {
+  border-radius: 4px;
+  color: vars.$black;
+  background-color: vars.$white;
+  font-family: vars.$font-family-lato;
+  text-align: left;
+  padding: 30px 30px 18px;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.form-body {
+  padding: 10px 30px 30px;
+  min-height: 460px;
+  h5 {
+    font-family: vars.$font-family-open;
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 1.4rem;
+  }
+}
+
+.form-group {
+  width: 100%;
+  border: 1px solid vars.$border;
+  border-radius: 4px;
+  margin-bottom: 0.8rem;
+  padding: 10px;
+  &.consent {
+    border: none;
+    padding-left: 2rem !important;
+  }
+  .error-message {
+    font-size: 12px;
+    font-weight: 600;
+    color: vars.$dark-red;
+    line-height: 1;
+    font-family: vars.$font-family-lato;
+    margin-top: 0.5rem;
+  }
+  legend {
+    font-weight: 600;
+    font-family: vars.$font-family-lato;
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+  }
+  label {
+    font-family: vars.$font-family-open;
+    font-weight: 500;
+    font-size: 16px;
+  }
+}
+
+.react-datepicker-wrapper {
+  width: 100%;
+}
+.form-check {
+  cursor: pointer;
+  margin-bottom: 0;
+  &:nth-child(2) {
+    margin-left: 1.8rem;
+  }
+  .form-check-input {
+    cursor: pointer;
+    border-width: 2px;
+    border-color: vars.$sand-brown;
+    &:checked {
+      background-color: vars.$sand-brown;
+      border-color: vars.$sand-brown;
+    }
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(182, 200, 182, 0.25);
+    }
+  }
+  .form-check-label {
+    cursor: pointer !important;
+    font-family: vars.$font-family-lato;
+    transition: all 0.2s;
+  }
+}
+
+.form-footer {
+  padding-top: 20px;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  background-color: vars.$white;
+}
+
+.form-error-message {
+  color: vars.$dark-red;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.form-control {
+  border: 1px solid vars.$sand-brown;
+  font-size: 14px;
+  font-family: vars.$font-family-lato;
+  font-weight: 600;
+  &::placeholder {
+    font-family: vars.$font-family-lato;
+    font-size: 14px;
+  }
+  &::-internal-autofill-selected {
+    color: vars.$black !important;
+  }
+}

@@ -1,0 +1,125 @@
+@use '../../styles/variables.scss' as vars;
+
+.services {
+  background: rgb(29, 47, 40);
+  background: radial-gradient(circle, rgba(29, 47, 40, 1) 40%, rgba(28, 25, 20, 1) 100%);
+  padding-bottom: 0;
+  .section-title {
+    color: vars.$white;
+  }
+  .section-subtitle {
+    color: vars.$white;
+    font-size: 24px;
+  }
+  .section-article {
+    line-height: 1.3;
+  }
+  .card {
+    position: relative;
+    max-height: 300px;
+    border-radius: 16px;
+
+    user-select: none;
+    border: 1px solid #ffffff22;
+    background-color: #282c34;
+    background: linear-gradient(0deg, rgba(40, 44, 52, 1) 0%, rgba(17, 0, 32, 0.5) 100%);
+    box-shadow: 0 7px 20px 5px #00000088;
+    border-radius: 0.7rem;
+    backdrop-filter: blur(7px);
+    overflow: hidden;
+    transition: 0.5s all;
+
+    padding: 15px;
+    border-radius: 16px;
+    color: vars.$black;
+    &:before {
+      position: fixed;
+      content: '';
+      box-shadow: 0 0 100px 40px #ffffff08;
+      top: -10%;
+      left: -100%;
+      transform: rotate(-45deg);
+      height: 60rem;
+      transition: 0.7s all;
+    }
+    &:hover {
+      border: 1px solid #ffffff44;
+      box-shadow: 0 7px 50px 10px #000000aa;
+      transform: scale(1.015);
+      filter: brightness(1.3);
+      &:before {
+        filter: brightness(0.5);
+        top: -100%;
+        left: 200%;
+      }
+    }
+    img {
+      width: 100%;
+      max-width: 68px;
+      margin-bottom: 8px;
+    }
+    h5 {
+      color: vars.$white;
+      font-size: 24px;
+      font-family: vars.$font-family-lato;
+    }
+    p {
+      color: vars.$white;
+      font-size: 16px;
+      font-family: vars.$font-family-open;
+    }
+  }
+  .service-img-wrapper {
+    overflow: hidden;
+    max-width: 445px;
+    max-height: 367px;
+    border-radius: 4px 40px 4px 4px;
+    margin: 5px;
+  }
+}
+
+.schedule-today {
+  border: 3px solid vars.$black;
+  display: flex;
+  width: auto;
+  background-image: url('../../assets/clean home.webp');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  min-height: 400px;
+  flex-direction: column;
+  justify-content: center;
+  color: vars.$white;
+  font-weight: 600;
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+  h2 {
+    font-weight: 400;
+    font-size: 32px;
+    position: relative;
+  }
+  p {
+    position: relative;
+    text-align: center;
+    max-width: 900px;
+    font-weight: 400;
+    margin: 0 auto 40px;
+    font-size: 20px;
+    font-family: vars.$font-family-open;
+  }
+}
+
+.what-we-offer {
+  padding: 80px 0;
+  display: flex;
+  background-attachment: fixed;
+  color: vars.$white;
+}

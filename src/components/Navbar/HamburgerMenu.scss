@@ -1,0 +1,43 @@
+@use '../../styles/variables' as vars;
+
+.hamburger-container {
+  perspective: 1000px;
+}
+
+.hamburger {
+  cursor: pointer;
+
+  &.open {
+    div {
+      background-color: vars.$white;
+    }
+    div:first-child {
+      transform: translateX(100%);
+      opacity: 0;
+    }
+
+    div:nth-child(2) {
+      transform: rotate(45deg) translateX(20%);
+    }
+
+    div:nth-child(3) {
+      transform: rotate(-45deg) translateX(15%);
+    }
+
+    div:last-child {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+  }
+
+  div {
+    height: 2px;
+    width: 30px;
+    margin: 5px 0;
+    background-color: vars.$black;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+    border-radius: 16px;
+  }
+}
