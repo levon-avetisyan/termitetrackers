@@ -7,6 +7,7 @@ const GetAQuote: React.FC = () => {
     <section className="getaquote">
       <div className="container">
         <h2 className="section-title">Get a Quote</h2>
+        <h3 className='section-subtitle'>Tell us your needs, and we'll send a tailored quote fast</h3>
         <GetQuoteForm />
       </div>
     </section>

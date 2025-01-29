@@ -22,7 +22,7 @@
     user-select: none;
     border: 1px solid #ffffff22;
     background-color: #282c34;
-    background: linear-gradient(0deg, rgba(40, 44, 52, 1) 0%, rgba(17, 0, 32, 0.5) 100%);
+    background: linear-gradient(343deg, rgb(16, 16, 16) 0%, rgb(37 37 37) 100%);
     box-shadow: 0 7px 20px 5px #00000088;
     border-radius: 0.7rem;
     backdrop-filter: blur(7px);
@@ -122,4 +122,34 @@
   display: flex;
   background-attachment: fixed;
   color: vars.$white;
+}
+
+
+.card-offer{
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  height: 100%;
+  h5 {
+    font-family: vars.$font-family-lato;
+    font-weight: 500;
+  }
+
+  p {
+    font-family: vars.$font-family-open;
+    font-size: 15px;
+  }
+
+  .icon{
+    display: inline-block;
+    width: 40px;
+    margin-right: 10px;
+    img{
+      width: 100%;
+    }
+  }
 }

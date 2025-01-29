@@ -7,7 +7,10 @@ import ServiceImg6 from '../../assets/service 6.webp';
 import House from '../../assets/house.png';
 import Shield from '../../assets/shield.png';
 import Time from '../../assets/time.png';
-// Remove react-bootstrap-icons import
+import Assesement from '../../assets/assesement.png';
+import Rodent from '../../assets/rodent.png';
+import Ribbon from '../../assets/ribbon.png';
+import Report from '../../assets/report.png';
 
 const cardData = [
   {
@@ -27,6 +30,29 @@ const cardData = [
     alt: 'Time',
     title: 'Infestation Tracking',
     text: 'Stay updated with real-time termite tracking and data for your area.',
+  },
+];
+
+const offerData = [
+  {
+    icon: <img src={Assesement} alt="Assesement"/>,
+    title: 'Assessment',
+    text: 'Our team conducts comprehensive assessments to identify signs of termite activity and evaluate the extent of any infestation.',
+  },
+  {
+    icon: <img src={Rodent} alt="Rodent"/>,
+    title: 'Bait Stations',
+    text: 'We utilize advanced baiting systems to monitor and eliminate termites, ensuring continuous protection and peace of mind.',
+  },
+  {
+    icon: <img src={Ribbon} alt="Ribbon"/>,
+    title: 'Awareness Sessions',
+    text: 'Our sessions educate you about termites, their signs, and best practices to prevent infestations effectively.',
+  },
+  {
+    icon: <img src={Report} alt="Report"/>,
+    title: 'Activity Reports',
+    text: 'Stay informed with detailed reports on termite activity and updates on the effectiveness of our solutions.',
   },
 ];
 
@@ -82,56 +108,18 @@ const Services: React.FC = () => {
         <div className="container">
           <h2 className="section-title text-center mb-5">What we offer</h2>
           <div className="row justify-content-center">
-            <div className="col-md-6 col-lg-4 mb-4 text-center">
-              <div className="w-75 m-auto">
-                <h5 className="fw-bold">
-                  <i className="bi bi-search me-2" style={{ fontSize: '1.2rem' }}></i>
-                  Assessment
-                </h5>
-                <p>
-                  Our team conducts comprehensive assessments to identify signs of termite activity
-                  and evaluate the extent of any infestation.
-                </p>
+            {offerData.map((offer, index) => (
+              <div className="col-md-6 col-lg-4 mb-4" key={index}>
+                <div className="card-offer">
+                
+                  <h5>
+                  <span className="icon">{offer.icon}</span>
+                    {offer.title}
+                  </h5>
+                  <p>{offer.text}</p>
+                </div>
               </div>
-            </div>
-            <div className="col-md-6 col-lg-4 mb-4 text-center">
-              <div className="w-75 m-auto">
-                <h5 className="fw-bold">
-                  <i className="bi bi-shield-fill me-2" style={{ fontSize: '1.2rem' }}></i>
-                  Bait Stations
-                </h5>
-                <p>
-                  We utilize advanced baiting systems to monitor and eliminate termites, ensuring
-                  continuous protection and peace of mind.
-                </p>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-4 mb-4 text-center">
-              <div className="w-75 m-auto">
-                <h5 className="fw-bold">
-                  <i className="bi bi-lightbulb-fill me-2" style={{ fontSize: '1.2rem' }}></i>
-                  Awareness Sessions
-                </h5>
-                <p>
-                  Our sessions educate you about termites, their signs, and best practices to
-                  prevent infestations effectively.
-                </p>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-4 mb-4 text-center">
-              <div className="w-75 m-auto">
-                <h5 className="fw-bold">
-                  <i
-                    className="bi bi-file-earmark-text-fill me-2"
-                    style={{ fontSize: '1.2rem' }}></i>
-                  Activity Reports
-                </h5>
-                <p>
-                  Stay informed with detailed reports on termite activity and updates on the
-                  effectiveness of our solutions.
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

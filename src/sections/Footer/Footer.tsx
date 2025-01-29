@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
           Terms of Service
         </Link>
       </p>
-      <p className="mb-0">Version: 0.1.6</p>
+      <p className="mb-0">Version: 0.1.7</p>
     </footer>
   );
 };

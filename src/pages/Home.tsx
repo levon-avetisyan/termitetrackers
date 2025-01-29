@@ -4,6 +4,7 @@ import About from '../sections/About/About';
 import Services from '../sections/Services/Services';
 import Footer from '../sections/Footer/Footer';
 import AppointmentModal from './../components/AppointmentModal/AppointmentModal';
+import GetAQuote from '../sections/GetAQuote/GetAQuote';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
       <Hero />
       <About />
       <Services />
+      <GetAQuote/>
       <Footer />
       <AppointmentModal />
     </>

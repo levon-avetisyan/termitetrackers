@@ -18,11 +18,12 @@ const GetQuoteForm: React.FC = () => {
     <iframe
       src="https://api.leadconnectorhq.com/widget/form/2cvt6lowT5Qb7UVOiSOy"
       style={{
-        width: '100%',
+        width: '500px',
         height: '100%',
         border: 'none',
         borderRadius: '3px',
         background: 'none',
+        margin: '0 auto'
       }}
       id="inline-2cvt6lowT5Qb7UVOiSOy"
       data-layout="{'id':'INLINE'}"
