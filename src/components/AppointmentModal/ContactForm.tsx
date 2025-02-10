@@ -4,6 +4,7 @@ import { IFormDataContact } from '../../interfaces';
 import { Link } from 'react-router-dom'; // Correct import
 import './AppointmentModal.scss';
 import '../../styles/forms.scss';
+import { locations } from '../../constants/constants';
 
 interface IContactFormProps {
   onSubmit: (data: IFormDataContact) => void;
@@ -112,6 +113,25 @@ const ContactForm: React.FC<IContactFormProps> = ({ onSubmit }) => {
               )}
             />
             {errors.phone && <div className="error-message">{errors.phone.message}</div>}
+          </div>
+          <div className="form-group border-0 p-0 mb-2">
+            <legend className="mb-1">Location*</legend>
+            <Controller
+              name="location"
+              control={control}
+              rules={{ required: 'This field is required' }}
+              render={({ field }) => (
+                <select className="form-control" id="location" {...field}>
+                  <option value="">Select a location</option>
+                  {locations.map((location, index) => (
+                    <option key={index} value={location.name}>
+                      {location.name}
+                    </option>
+                  ))}
+                </select>
+              )}
+            />
+            {errors.location && <div className="error-message">{errors.location.message}</div>}
           </div>
           <div className="form-group form-check consent">
             <Controller

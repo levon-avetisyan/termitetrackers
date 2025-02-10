@@ -18,6 +18,7 @@ export interface IFormDataContact {
   selectedTimezone: string;
   calendarId: string;
   consent: boolean;
+  location: string;
 }
 
 export interface IFormDataDate {
@@ -49,4 +50,9 @@ export interface IStep1Props {
   control: Control<FormData>;
   errors: FieldErrors<FormData>;
   handleFormSubmit: (data: FormData) => void;
+}
+
+export interface IFreeSlot {
+  startTime: string;
+  endTime: string;
 }

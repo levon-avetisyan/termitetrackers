@@ -308,3 +308,78 @@ p {
       -1.8em -1.8em 0 0em #ffffff;
   }
 }
+
+.modal-react-modal {
+  font-family: vars.$font-family-open;
+  background-color: vars.$white;
+  z-index: 11000;
+  position: relative;
+  border-radius: 16px;
+  padding: 30px 15px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .modal-selected-date {
+    font-weight: 600;
+    border: 1px dashed vars.$pine-green;
+    padding: 8px;
+    font-size: 16px;
+    font-family: vars.$font-family-open;
+    border-radius: 2px;
+    margin-top: 8px;
+    display: flex;
+  }
+  .modal-buttons {
+    display: flex;
+    margin-top: 16px;
+    justify-content: space-between;
+    button {
+      & + button {
+        margin-left: 20px;
+      }
+    }
+  }
+}
+
+.overlay-react-modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1999;
+  padding-top: 15%;
+}
+
+.button-primary {
+  background-color: vars.$btn-primary;
+  border: 2px solid vars.$btn-primary;
+  border-radius: 40px;
+  color: vars.$white;
+  padding: 8px 20px;
+  font-size: 14px;
+  &:hover {
+    opacity: 0.96;
+    border: 2px solid vars.$btn-primary;
+  }
+}
+
+.button-secondary {
+  background-color: transparent;
+  border: 2px solid vars.$btn-primary;
+  border-radius: 40px;
+  color: vars.$black;
+  padding: 8px 20px;
+  font-size: 14px;
+  &:hover {
+    opacity: 0.96;
+    border: 2px solid vars.$btn-primary;
+    background-color: #d7d7d7;
+  }
+}
