@@ -47,7 +47,7 @@ const AppointmentModal: React.FC = () => {
           </div>
         )}
 
-        <div className="form-header">Booking Appointment</div>
+        <div className="form-header">New Appointment</div>
         <div className={`${formActiveStep === 3 ? 'calendar-step' : ''} form-body`}>
           {formError && (
             <div className="form-error-message">
