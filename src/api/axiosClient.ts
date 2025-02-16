@@ -4,16 +4,16 @@ const axiosClient: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL as string,
   headers: {
     'Content-Type': 'application/json',
-    'User-Type': sessionStorage.getItem('userType') || 'guest',
+    // 'User-Type': sessionStorage.getItem('userType') || 'guest',
   },
   withCredentials: true,
 });
 
-axiosClient.interceptors.request.use((config) => {
-  const userType = sessionStorage.getItem('userType') || 'guest';
-  config.headers['User-Type'] = userType;
-  axiosClient.defaults.headers.common['User-Type'] = userType;
-  return config;
-});
+// axiosClient.interceptors.request.use((config) => {
+//   const userType = sessionStorage.getItem('userType') || 'guest';
+//   config.headers['User-Type'] = userType;
+//   axiosClient.defaults.headers.common['User-Type'] = userType;
+//   return config;
+// });
 
 export { axiosClient };
