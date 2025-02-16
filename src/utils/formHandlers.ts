@@ -72,10 +72,7 @@ export const handleFormSubmitContact: IHandleFormSubmitContact = async (
       axios.isAxiosError(error) &&
       error.response?.data?.message === GHL_ERROR_MESSAGES.DuplicateContact
     ) {
-      toast.warn(
-        'Seems like we already have your contact information. Please contact us directly to make an appointment.',
-        { theme: 'colored' }
-      );
+      toast.warn('Contact info already exists. Please call us to book.', { theme: 'colored' });
       setFormError(ERROR_MESSAGES.generic);
       setIsLoading(false);
       return;
