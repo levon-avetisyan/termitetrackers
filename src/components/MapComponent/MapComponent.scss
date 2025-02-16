@@ -1,1 +1,18 @@
 @use '../../styles/variables.scss' as vars;
+
+.gm-style-iw-chr {
+  display: none !important;
+}
+.gm-style-iw-d {
+  padding-top: 10px;
+}
+.info-window-content {
+  h4 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  p {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+}

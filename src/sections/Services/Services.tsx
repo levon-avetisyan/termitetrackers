@@ -35,22 +35,22 @@ const cardData = [
 
 const offerData = [
   {
-    icon: <img src={Assesement} alt="Assesement"/>,
+    icon: <img src={Assesement} alt="Assesement" />,
     title: 'Assessment',
     text: 'Our team conducts comprehensive assessments to identify signs of termite activity and evaluate the extent of any infestation.',
   },
   {
-    icon: <img src={Rodent} alt="Rodent"/>,
+    icon: <img src={Rodent} alt="Rodent" />,
     title: 'Bait Stations',
     text: 'We utilize advanced baiting systems to monitor and eliminate termites, ensuring continuous protection and peace of mind.',
   },
   {
-    icon: <img src={Ribbon} alt="Ribbon"/>,
+    icon: <img src={Ribbon} alt="Ribbon" />,
     title: 'Awareness Sessions',
     text: 'Our sessions educate you about termites, their signs, and best practices to prevent infestations effectively.',
   },
   {
-    icon: <img src={Report} alt="Report"/>,
+    icon: <img src={Report} alt="Report" />,
     title: 'Activity Reports',
     text: 'Stay informed with detailed reports on termite activity and updates on the effectiveness of our solutions.',
   },
@@ -111,9 +111,8 @@ const Services: React.FC = () => {
             {offerData.map((offer, index) => (
               <div className="col-md-6 col-lg-4 mb-4" key={index}>
                 <div className="card-offer">
-                
                   <h5>
-                  <span className="icon">{offer.icon}</span>
+                    <span className="icon">{offer.icon}</span>
                     {offer.title}
                   </h5>
                   <p>{offer.text}</p>
@@ -121,19 +120,6 @@ const Services: React.FC = () => {
               </div>
             ))}
           </div>
-        </div>
-      </div>
-      <div className="schedule-today">
-        <div className="container text-center my-5">
-          <h2>Schedule an Appointment Today</h2>
-          <p>
-            Don’t wait until termites cause damage to your home. Contact Termite Trackers now to
-            schedule an inspection or learn more about our services. Together, let’s build a strong
-            defense against termites and ensure your property stays protected.
-          </p>
-          <a href="#appointment" className="btn-custom-primary">
-            Make an appointment
-          </a>
         </div>
       </div>
     </section>

@@ -17,7 +17,7 @@ const Map = () => {
           <MapComponent />
         </div>
         <div className="col-xl-6 ps-3 d-none d-xl-block py-5">
-          <h2 className="section-title ms-0 text-start mb-2 mt-2">Where we do</h2>
+          <h2 className="section-title ms-0 text-start mb-2 mt-2">Explore Our Service Areas</h2>
           <h3 className="section-subtitle text-start m-0">Our Locations</h3>
           <div className="business-locatios">
             <div className="row">
@@ -26,7 +26,7 @@ const Map = () => {
                   <ul className="locations">
                     {col.map((location, index) => (
                       <li className="location" key={index}>
-                        <i className="bi bi-geo-alt-fill"></i> {/* Bootstrap icon */}
+                        <i className="bi bi-geo-alt-fill"></i>
                         {location.name} - {location.address}
                       </li>
                     ))}
