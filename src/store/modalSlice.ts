@@ -5,7 +5,7 @@ interface ModalState {
 }
 
 const initialState: ModalState = {
-  appointment: true,
+  appointment: false,
   success: false,
   error: false,
 };
