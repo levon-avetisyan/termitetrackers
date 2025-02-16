@@ -160,10 +160,11 @@ const CreateContactForm: React.FC<ICreateContactForm> = ({ onSubmit }) => {
               )}
             />
             <label htmlFor="consent" className="form-check-label terms-text">
-              By clicking Next, you agree to receive communications from Termite Trackers, including
-              emails, phone calls, and automated text messages. SMS frequency varies. Message & data
-              rates apply. Reply STOP to unsubscribe. You also agree to our privacy policy and our
-              terms and conditions.
+              <b>
+              By clicking Next, you agree to receive marketing communications from Termite Trackers, including 
+              emails, phone calls, and automated text messages. SMS frequency varies. Message & data rates apply. 
+              Reply STOP to unsubscribe. Reply HELP for help. You also agree to our privacy policy and our terms and conditions.
+              </b>
             </label>
             {errors.consent && <div className="error-message">{errors.consent.message}</div>}
             <div className="d-flex justify-content-center mt-2 privacy-terms">
