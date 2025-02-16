@@ -4,9 +4,9 @@ import { closeModal } from '../../store/modalSlice';
 import { RootState } from '../../store/store';
 import { useAppointment } from '../../hooks/useAppointment';
 import CalendarComponent from './componenets/Calendar';
-import QuestionsForm from './QuestionsForm';
+import QuestionsForm from './componenets/QuestionsForm';
 import ContactForm from '../CreateContactForm/CreateContactForm';
-import ThankYou from './ThankYou';
+import ThankYou from './componenets/ThankYou';
 import './AppointmentModal.scss';
 import {
   handleFormSubmitContact,

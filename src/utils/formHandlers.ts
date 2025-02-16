@@ -73,7 +73,6 @@ export const handleFormSubmitContact: IHandleFormSubmitContact = async (
       error.response?.data?.message === GHL_ERROR_MESSAGES.DuplicateContact
     ) {
       toast.warn('Contact info already exists. Please call us to book.', { theme: 'colored' });
-      setFormError(ERROR_MESSAGES.generic);
       setIsLoading(false);
       return;
     }

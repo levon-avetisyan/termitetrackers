@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { IFormDataQuestions } from '../../interfaces/formDataInterfaces';
+import { IFormDataQuestions } from '../../../interfaces/formDataInterfaces';
 
 interface QuestionsFormProps {
   onSubmit: (data: IFormDataQuestions) => void;
