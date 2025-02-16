@@ -1,4 +1,3 @@
-// api/axiosClient.ts
 import axios, { AxiosInstance, AxiosError } from 'axios';
 
 const axiosClient: AxiosInstance = axios.create({
@@ -16,11 +15,6 @@ axiosClient.interceptors.response.use(
   (error: AxiosError) => {
     if (error.response) {
       console.error('API Error:', error.response.data);
-      // Handle specific error cases here
-      if (error.response.status === 401) {
-        // Handle unauthorized
-        console.log('Unauthorized access');
-      }
     }
     return Promise.reject(error);
   }
