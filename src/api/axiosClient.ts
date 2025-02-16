@@ -4,7 +4,7 @@ const axiosClient: AxiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL as string,
   headers: {
     'Content-Type': 'application/json',
-    Accept: 'application/json', // Add this line
+    'User-Type': sessionStorage.getItem('userType') || 'guest',
   },
   withCredentials: true,
 });
