@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
-import { IFormDataDate } from '../../../interfaces';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './Calendar.scss';
 import useModal from '../../../hooks/useModal';
+import { IFormDataSelectDate } from '../../../interfaces/formDataInterfaces';
 
 interface IProps {
-  onSubmit: (data: IFormDataDate) => void;
+  onSubmit: (data: IFormDataSelectDate) => void;
   errors: { [key: string]: { message: string } };
 }
 
-const CalendarComponent: React.FC<IProps> = ({ onSubmit, errors }) => {
+const CalendarComponent: React.FC<IProps> = ({ onSubmit }) => {
   const localizer = momentLocalizer(moment);
   const freeSlots = sessionStorage.getItem('freeSlots');
   const events = [];
-  const [selectedDate, setSelectedDate] = useState<IFormDataDate | null>(null);
+  const [selectedDate, setSelectedDate] = useState<IFormDataSelectDate | null>(null);
 
   const confirmSelection = () => {
     if (selectedDate) {
@@ -60,6 +60,7 @@ const CalendarComponent: React.FC<IProps> = ({ onSubmit, errors }) => {
       });
     }
   });
+  console.log(events);
 
   const handleSelectEvent = (event: any) => {
     const selectedDate = {

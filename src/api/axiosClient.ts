@@ -1,20 +1,17 @@
-import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
 const axiosClient: AxiosInstance = axios.create({
-  baseURL: import.meta.env.VITE_GHL_API_URL as string, // API base URL
+  baseURL: import.meta.env.VITE_API_URL as string,
   headers: {
-    Version: '2021-07-28',
-    Authorization: `Bearer ${import.meta.env.VITE_GHL_ACCESS_TOKEN as string}`,
     'Content-Type': 'application/json',
   },
 });
 
-axiosClient.interceptors.response.use(
-  (response: AxiosResponse): AxiosResponse => response,
-  (error: AxiosError): Promise<AxiosError> => {
-    console.error('API Error:', error.response || error.message);
-    return Promise.reject(error);
-  }
-);
+axiosClient.interceptors.request.use((config) => {
+  const userType = sessionStorage.getItem('userType') || 'guest';
+  config.headers['User-Type'] = userType;
+  axiosClient.defaults.headers.common['User-Type'] = userType;
+  return config;
+});
 
-export default axiosClient;
+export { axiosClient };

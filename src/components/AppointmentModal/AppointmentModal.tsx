@@ -1,12 +1,23 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../store/store';
 import { closeModal } from '../../store/modalSlice';
+import { RootState } from '../../store/store';
+import { useAppointment } from '../../hooks/useAppointment';
 import CalendarComponent from './componenets/Calendar';
 import QuestionsForm from './QuestionsForm';
-import ContactForm from './ContactForm';
+import ContactForm from '../CreateContactForm/CreateContactForm';
 import ThankYou from './ThankYou';
-import { useAppointment } from '../../hooks/useAppointment';
+import './AppointmentModal.scss';
+import {
+  handleFormSubmitContact,
+  handleFormSubmitDate,
+  handleFormSubmitQuestions,
+} from '../../utils/formHandlers';
+import {
+  IFormDataCreateContact,
+  IFormDataQuestions,
+  IFormDataSelectDate,
+} from '../../interfaces/formDataInterfaces';
 
 const AppointmentModal: React.FC = () => {
   const isModalVisible = useSelector((state: RootState) => state.modal.appointment);
@@ -16,10 +27,10 @@ const AppointmentModal: React.FC = () => {
     formActiveStep,
     errors,
     isLoading,
-    handleFormSubmitQuestions,
-    handleFormSubmitContact,
-    handleFormSubmitDate,
     setFormActiveStep,
+    setIsLoading,
+    setErrors,
+    setFormError,
   } = useAppointment();
 
   const handleCloseModal = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -31,6 +42,18 @@ const AppointmentModal: React.FC = () => {
   const handleFinishAppointment = () => {
     dispatch(closeModal('appointment'));
     setFormActiveStep(1);
+  };
+
+  const formSubmitQuestions = (data: IFormDataQuestions) => {
+    handleFormSubmitQuestions(data, setFormError, setFormActiveStep);
+  };
+
+  const formSubmitContact = (data: IFormDataCreateContact) => {
+    handleFormSubmitContact(data, setFormError, setFormActiveStep, setIsLoading, setErrors);
+  };
+
+  const formSubmitDate = (data: IFormDataSelectDate) => {
+    handleFormSubmitDate(data, setFormError, setFormActiveStep, setIsLoading, setErrors);
   };
 
   if (!isModalVisible) return null;
@@ -49,21 +72,15 @@ const AppointmentModal: React.FC = () => {
 
         <div className="form-header">New Appointment</div>
         <div className={`${formActiveStep === 3 ? 'calendar-step' : ''} form-body`}>
-          {formError && (
-            <div className="form-error-message">
-              <i className="bi bi-exclamation-triangle-fill me-1"></i>
-              {formError}
-            </div>
-          )}
+          {formError && <div className="form-error-message">{formError}</div>}
+
           {formActiveStep === 1 && (
-            <QuestionsForm onSubmit={handleFormSubmitQuestions} errors={formError} />
+            <QuestionsForm onSubmit={formSubmitQuestions} errors={formError} />
           )}
 
-          {formActiveStep === 2 && <ContactForm onSubmit={handleFormSubmitContact} />}
+          {formActiveStep === 2 && <ContactForm onSubmit={formSubmitContact} />}
 
-          {formActiveStep === 3 && (
-            <CalendarComponent onSubmit={handleFormSubmitDate} errors={errors} />
-          )}
+          {formActiveStep === 3 && <CalendarComponent onSubmit={formSubmitDate} errors={errors} />}
 
           {formActiveStep === 4 && <ThankYou closeModal={handleFinishAppointment} />}
         </div>

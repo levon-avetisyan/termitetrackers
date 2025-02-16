@@ -7,6 +7,7 @@ import AppointmentModal from './../components/AppointmentModal/AppointmentModal'
 import GetAQuote from '../sections/GetAQuote/GetAQuote';
 import Map from '../sections/Map/Map.tsx';
 import Loader from '../components/Loaders/Loader';
+import { ToastContainer } from 'react-toastify';
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
       <Footer />
       <AppointmentModal />
       <Loader />
+      <ToastContainer />
     </>
   );
 };

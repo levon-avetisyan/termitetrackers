@@ -12,8 +12,8 @@ const globalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    setLoading(state, action: PayloadAction<string>) {
-      state[action.payload] = true;
+    setLoading(state, action: PayloadAction<boolean>) {
+      state.loading = action.payload;
     },
   },
 });

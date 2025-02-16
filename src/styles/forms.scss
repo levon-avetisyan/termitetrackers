@@ -1,12 +1,12 @@
-@use './variables.scss' as vars;
+@use './variables.scss' as *;
 
 .form-header {
   border-radius: 4px;
-  color: vars.$black;
-  background-color: vars.$white;
-  font-family: vars.$font-family-lato;
+  color: $black;
+  background-color: $white;
+  font-family: $font-family-lato;
   text-align: left;
-  padding: 30px 30px 18px;
+  padding: 30px 30px 4px;
   font-weight: 700;
   font-size: 26px;
 }
@@ -15,7 +15,7 @@
   padding: 10px 30px 30px;
   min-height: 460px;
   h5 {
-    font-family: vars.$font-family-open;
+    font-family: $font-family-open;
     font-size: 17px;
     font-weight: 600;
     margin-bottom: 1.4rem;
@@ -28,7 +28,7 @@
 
 .form-group {
   width: 100%;
-  border: 1px solid vars.$border;
+  border: 1px solid $border;
   border-radius: 4px;
   margin-bottom: 0.8rem;
   padding: 10px;
@@ -39,19 +39,19 @@
   .error-message {
     font-size: 12px;
     font-weight: 600;
-    color: vars.$dark-red;
+    color: $dark-red;
     line-height: 1;
-    font-family: vars.$font-family-lato;
+    font-family: $font-family-lato;
     margin-top: 0.5rem;
   }
   legend {
     font-weight: 600;
-    font-family: vars.$font-family-lato;
+    font-family: $font-family-lato;
     font-size: 14px;
     margin-bottom: 0.5rem;
   }
   label {
-    font-family: vars.$font-family-open;
+    font-family: $font-family-open;
     font-weight: 500;
     font-size: 14px;
   }
@@ -69,10 +69,10 @@
   .form-check-input {
     cursor: pointer;
     border-width: 2px;
-    border-color: vars.$sand-brown;
+    border-color: $sand-brown;
     &:checked {
-      background-color: vars.$sand-brown;
-      border-color: vars.$sand-brown;
+      background-color: $sand-brown;
+      border-color: $sand-brown;
     }
     &:focus {
       box-shadow: 0 0 0 0.2rem rgba(182, 200, 182, 0.25);
@@ -80,7 +80,7 @@
   }
   .form-check-label {
     cursor: pointer !important;
-    font-family: vars.$font-family-lato;
+    font-family: $font-family-lato;
     transition: all 0.2s;
   }
 }
@@ -90,27 +90,29 @@
   border-radius: 4px;
   display: flex;
   justify-content: center;
-  background-color: vars.$white;
+  background-color: $white;
 }
 
 .form-error-message {
-  color: vars.$dark-red;
+  color: $dark-red;
   font-size: 15px;
   font-weight: 600;
   margin-bottom: 18px;
-  padding: 0 20px;
+  padding: 4px 10px;
+  border: 1px dashed $red;
+  border-radius: 4px;
 }
 
 .form-control {
-  border: 1px solid vars.$sand-brown;
+  border: 1px solid $sand-brown;
   font-size: 14px;
-  font-family: vars.$font-family-lato;
+  font-family: $font-family-lato;
   font-weight: 600;
   &::placeholder {
-    font-family: vars.$font-family-lato;
+    font-family: $font-family-lato;
     font-size: 14px;
   }
   &::-internal-autofill-selected {
-    color: vars.$black !important;
+    color: $black !important;
   }
 }

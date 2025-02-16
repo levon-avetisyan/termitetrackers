@@ -1,26 +1,25 @@
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { IFormDataContact } from '../../interfaces';
+import { IFormDataCreateContact } from '../../interfaces/formDataInterfaces';
 import { Link } from 'react-router-dom'; // Correct import
-import './AppointmentModal.scss';
 import '../../styles/forms.scss';
 import { locations } from '../../constants/constants';
 
-interface IContactFormProps {
-  onSubmit: (data: IFormDataContact) => void;
+interface ICreateContactForm {
+  onSubmit: (data: IFormDataCreateContact) => void;
 }
 
-const ContactForm: React.FC<IContactFormProps> = ({ onSubmit }) => {
+const CreateContactForm: React.FC<ICreateContactForm> = ({ onSubmit }) => {
   const {
     control,
     handleSubmit,
     formState: { errors },
     setError,
-  } = useForm<IFormDataContact>({
+  } = useForm<IFormDataCreateContact>({
     mode: 'onChange',
   });
 
-  const onSubmitForm = (data: IFormDataContact) => {
+  const onSubmitForm = (data: IFormDataCreateContact) => {
     if (!data.consent) {
       setError('consent', {
         type: 'manual',
@@ -121,7 +120,16 @@ const ContactForm: React.FC<IContactFormProps> = ({ onSubmit }) => {
               control={control}
               rules={{ required: 'This field is required' }}
               render={({ field }) => (
-                <select className="form-control" id="location" {...field}>
+                <select
+                  className="form-control"
+                  id="location"
+                  value={field.value?.name || ''}
+                  onChange={(e) =>
+                    field.onChange(locations.find((loc) => loc.name === e.target.value))
+                  }
+                  onBlur={field.onBlur}
+                  ref={field.ref}
+                >
                   <option value="">Select a location</option>
                   {locations.map((location, index) => (
                     <option key={index} value={location.name}>
@@ -176,4 +184,4 @@ const ContactForm: React.FC<IContactFormProps> = ({ onSubmit }) => {
   );
 };
 
-export default ContactForm;
+export default CreateContactForm;

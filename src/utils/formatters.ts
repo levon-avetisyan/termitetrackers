@@ -34,3 +34,22 @@ export const filterTime = (time: Date) => {
 };
 
 export const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+export const getAdjustedEndDate = (startDate: Date): Date => {
+  const endDate = new Date(startDate);
+  endDate.setDate(endDate.getDate() + 7);
+  return endDate;
+};
+
+export const getAdjustedStartDate = (): Date => {
+  const startDate = new Date();
+  const day = startDate.getDay();
+  if (day === 6) {
+    // Saturday
+    startDate.setDate(startDate.getDate() + 2);
+  } else if (day === 0) {
+    // Sunday
+    startDate.setDate(startDate.getDate() + 1);
+  }
+  return startDate;
+};

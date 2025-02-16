@@ -1,44 +1,5 @@
 import { Control, FieldErrors } from 'react-hook-form';
 
-export interface IFormDataQuestions {
-  ownHome: string;
-  residenceType: string;
-  flatRoof: string;
-  presentDuringInspection: string;
-}
-
-export interface IFormDataContact {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phone: number;
-  address1: string;
-  city: string;
-  state: string;
-  selectedTimezone: string;
-  calendarId: string;
-  consent: boolean;
-  location: string;
-}
-
-export interface IFormDataDate {
-  startTime: string;
-  endTime?: string;
-  title: string;
-  meetingLocationType?: string;
-  appointmentStatus: string;
-  assignedUserId?: string;
-  calendarId: string;
-  locationId: string;
-  contactId: string;
-  selectedTimezone: string;
-  address: string;
-  ignoreDateRange?: false;
-  toNotify?: false;
-  ignoreFreeSlotValidation: true;
-  rrule?: 'RRULE:FREQ=DAILY;INTERVAL=1;COUNT=5';
-}
-
 export interface IAppointmentModalProps {
   isOpen: boolean;
   closeModal: () => void;
@@ -55,4 +16,14 @@ export interface IStep1Props {
 export interface IFreeSlot {
   startTime: string;
   endTime: string;
+}
+
+export interface ITokenRequestPayload {
+  client_id: string;
+  client_secret: string;
+  grant_type: 'authorization_code' | 'refresh_token';
+  code?: string;
+  refresh_token?: string;
+  user_type: 'Company' | 'Location';
+  redirect_uri: string;
 }

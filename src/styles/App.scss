@@ -383,3 +383,19 @@ p {
     background-color: #d7d7d7;
   }
 }
+
+.Toastify__toast-container {
+  font-size: 14px;
+  white-space: wrap;
+  padding-left: 25px;
+}
+
+.Toastify__toast {
+  border-radius: 8px;
+  padding: 10px 18px;
+  overflow: hidden;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--warning {
+  color: vars.$black;
+}
