@@ -35,12 +35,16 @@
   padding: 0;
   position: relative;
   width: 90%;
-  max-width: 627px;
+  max-width: 680px;
   z-index: 5;
   box-shadow:
     rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
     rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   color: vars.$black;
+  &.calendar-step {
+    width: 100%;
+    max-width: 96%;
+  }
   .close-modal {
     background-color: vars.$pine-green;
     border: 0;
@@ -63,6 +67,12 @@
       right: 100%;
       bottom: 100%;
     }
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-modal.calendar-step {
+    max-width: 680px;
   }
 }
 

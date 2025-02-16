@@ -5,7 +5,7 @@ interface ModalState {
 }
 
 const initialState: ModalState = {
-  appointment: false,
+  appointment: true,
   success: false,
   error: false,
 };
@@ -15,9 +15,7 @@ const modalSlice = createSlice({
   initialState,
   reducers: {
     openModal(state, action: PayloadAction<string>) {
-      console.log('openModal action payload:', action.payload); // Add this line
       state[action.payload] = true;
-      console.log('state after openModal:', state); // Add this line
     },
     closeModal(state, action: PayloadAction<string>) {
       state[action.payload] = false;

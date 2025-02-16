@@ -1,25 +1,25 @@
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { IFormDataContact } from '../../interfaces';
+import { IFormDataCreateContact } from '../../interfaces/formDataInterfaces';
 import { Link } from 'react-router-dom'; // Correct import
-import './AppointmentModal.scss';
 import '../../styles/forms.scss';
+import { locations } from '../../constants/constants';
 
-interface IContactFormProps {
-  onSubmit: (data: IFormDataContact) => void;
+interface ICreateContactForm {
+  onSubmit: (data: IFormDataCreateContact) => void;
 }
 
-const ContactForm: React.FC<IContactFormProps> = ({ onSubmit }) => {
+const CreateContactForm: React.FC<ICreateContactForm> = ({ onSubmit }) => {
   const {
     control,
     handleSubmit,
     formState: { errors },
     setError,
-  } = useForm<IFormDataContact>({
+  } = useForm<IFormDataCreateContact>({
     mode: 'onChange',
   });
 
-  const onSubmitForm = (data: IFormDataContact) => {
+  const onSubmitForm = (data: IFormDataCreateContact) => {
     if (!data.consent) {
       setError('consent', {
         type: 'manual',
@@ -113,6 +113,34 @@ const ContactForm: React.FC<IContactFormProps> = ({ onSubmit }) => {
             />
             {errors.phone && <div className="error-message">{errors.phone.message}</div>}
           </div>
+          <div className="form-group border-0 p-0 mb-2">
+            <legend className="mb-1">Location*</legend>
+            <Controller
+              name="location"
+              control={control}
+              rules={{ required: 'This field is required' }}
+              render={({ field }) => (
+                <select
+                  className="form-control"
+                  id="location"
+                  value={field.value?.name || ''}
+                  onChange={(e) =>
+                    field.onChange(locations.find((loc) => loc.name === e.target.value))
+                  }
+                  onBlur={field.onBlur}
+                  ref={field.ref}
+                >
+                  <option value="">Select a location</option>
+                  {locations.map((location, index) => (
+                    <option key={index} value={location.name}>
+                      {location.name}
+                    </option>
+                  ))}
+                </select>
+              )}
+            />
+            {errors.location && <div className="error-message">{errors.location.message}</div>}
+          </div>
           <div className="form-group form-check consent">
             <Controller
               name="consent"
@@ -157,4 +185,4 @@ const ContactForm: React.FC<IContactFormProps> = ({ onSubmit }) => {
   );
 };
 
-export default ContactForm;
+export default CreateContactForm;

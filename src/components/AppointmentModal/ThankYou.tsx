@@ -7,12 +7,12 @@ const ThankYou: React.FC<IProps> = ({ closeModal }) => {
     <div className="thank-you">
       <h4>Thank you.</h4>
       <p>Our specialist will contact you shortly.</p>
-      <p className="text-muted">
+      {/* <p className="text-muted">
         Leave a review{' '}
         <b>
           <a href="/review">here.</a>
         </b>
-      </p>
+      </p> */}
       <button type="submit" className="btn-custom-form mt-4" onClick={closeModal}>
         Close
       </button>

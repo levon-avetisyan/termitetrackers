@@ -6,20 +6,22 @@ import Footer from '../sections/Footer/Footer';
 import AppointmentModal from './../components/AppointmentModal/AppointmentModal';
 import GetAQuote from '../sections/GetAQuote/GetAQuote';
 import Map from '../sections/Map/Map.tsx';
+import Loader from '../components/Loaders/Loader';
+import { ToastContainer } from 'react-toastify';
 
 const Home = () => {
   return (
     <>
-
-       
       <Navbar />
       <Hero />
       <About />
       <Services />
       <Map />
-      <GetAQuote/>
+      <GetAQuote />
       <Footer />
       <AppointmentModal />
+      <Loader />
+      <ToastContainer />
     </>
   );
 };
