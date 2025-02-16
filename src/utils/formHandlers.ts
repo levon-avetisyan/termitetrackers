@@ -55,7 +55,7 @@ export const handleFormSubmitContact: IHandleFormSubmitContact = async (
       customFields: [{ consent: true }, { location: name }],
     };
 
-    const response = await axiosClient.post('/api/contacts', payload);
+    const response = await axiosClient.post('/contacts', payload);
 
     sessionStorage.setItem('calendarId', calendarId || '');
 
@@ -91,7 +91,7 @@ const fetchFreeSlots: IFetchFreeSlots = async (calendarId, setIsLoading, setErro
     const startDate = getAdjustedStartDate();
     const endDate = getAdjustedEndDate(startDate);
 
-    const response = await axiosClient.get(`/api/calendars/${calendarId}/free-slots`, {
+    const response = await axiosClient.get(`/calendars/${calendarId}/free-slots`, {
       params: {
         startDate: startDate.getTime().toString(),
         endDate: endDate.getTime().toString(),
@@ -117,7 +117,7 @@ export const handleFormSubmitDate: IHandleFormSubmitDate = async (
 ) => {
   try {
     setIsLoading(true);
-    await axiosClient.post('/api/calendars/events/appointments', {
+    await axiosClient.post('/calendars/events/appointments', {
       startTime: data.startTime,
       title: 'A new appointment from the website',
       appointmentStatus: 'new',
