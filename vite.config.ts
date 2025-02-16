@@ -19,7 +19,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5001',
+        target: 'https://ghl-backend-production.up.railway.app',
         changeOrigin: true,
         // rewrite: (path) => path.replace(/^\/api/, ''), // Optional: Adjust if necessary
         secure: false,
