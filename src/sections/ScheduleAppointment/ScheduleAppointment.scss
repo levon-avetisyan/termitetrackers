@@ -13,6 +13,9 @@
   color: vars.$white;
   font-weight: 600;
   position: relative;
+  @media (max-width: 1024px) { // Target iPhones & smaller screens
+    background-attachment: scroll; // Fix for iOS
+  }
   &:before {
     content: '';
     position: absolute;
